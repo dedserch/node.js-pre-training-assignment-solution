@@ -1,7 +1,14 @@
-import { Todo, NewTodo, TodoStatus } from './types';
+import {NewTodo, Todo, TodoStatus} from './types';
 
 let nextId = 1;
 
 export function createTodo(input: NewTodo): Todo {
-  throw new Error('createTodo: not implemented');
+    return {
+        description: '',
+        status: TodoStatus.PENDING,
+        ...input,
+        id: nextId++,
+        createdAt: new Date()
+    }
 }
+
